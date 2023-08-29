@@ -28,7 +28,9 @@ param
 	[Parameter (Mandatory=$true)]
 	[string] $VaultName,
     [Parameter (Mandatory=$true)]
-	[string] $SubscriptionId
+	[string] $SubscriptionId,
+    [Parameter (Mandatory=$true)]
+    [string] $ResourceGroupName
 )
 
 "Logging in to Azure..."
@@ -42,10 +44,10 @@ param
     $AzureContext = Set-AzContext -SubscriptionId $SubscriptionId
 
 # Try to retrieve the key vault.
-$keyVault = Get-AzKeyVault -VaultName $VaultName
+$keyVault = Get-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 if ($keyVault -eq $null)
 {
-	throw "Could not retrieve key vault $VaultName. Check that a key vault with this name exists."
+	throw "Could not retrieve key vault $VaultName. Check that a key vault with this name exists in the resource group $ResourceGroupName."
 }
 
 # Return the key vault
