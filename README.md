@@ -5,8 +5,8 @@
 
 
 
-This runbook shows how to retrieve the properties of an existing Key Vault. It requires an Azure Run As account and additional modules, see the PREREQUISITE sections in the runbook for details. The runbook will use the Run As account
- to authenticate against Key Vault. The Run As account needs to have sufficient permissions to access the Key Vault. If successful, the runbook output will display some of the Key Vault's properties.
+This runbook shows how to retrieve the properties of an existing Key Vault. It requires system assigned managed identity and additional modules, see the PREREQUISITE sections in the runbook for details. The runbook will use the system assigned managed identity
+ to authenticate against Key Vault. The managed identity needs to have sufficient permissions to access the Key Vault. If successful, the runbook output will display some of the Key Vault's properties.
 
 
 
